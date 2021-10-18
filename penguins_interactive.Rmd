@@ -6,13 +6,38 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE, message = FALSE, warning = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 
 library(plotly)
 library(DT)
 library(tidyverse)
 library(palmerpenguins)
 
+# install packages
+
 ```
+
+```{r}
+penguins_graph <- ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species))
+
+penguins_graph
+
+
+```
+
+```{r}
+# making our graph interactive
+ggplotly(penguins_graph)
+
+```
+
+```{r}
+# making an interactive table
+
+datatable(penguins)
+
+```
+
 
 
